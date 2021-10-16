@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfiniteScrolling</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+         #main{
+        border: 5px solid blueviolet;
+        width: 300px;
 
-</head>
-<body>
-  <div id="heading"></div>
-</body>
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        font-size: 18px;
+      }
+      #main div {
+        margin-bottom: 10px;
+      }
+    </style>
+    
+     
+  </head>
+  <body>
+    <div id="main"></div>
+  </body>
 </html>
 <script>
-//const URL = "http://api.adorable.io/avatars"
-let appendi = 0
-let heading = document.getElementById("heading")
-function scrolling()  {
- 
+  
+  let appendIt = 0
 
-  for (let i = 0; i <25 ; i++) {
-    let div = document.createElement("div")
-    div.innerHTML = `vaani ${appendi}`
-    heading.appendChild(div)
-    appendi++
+  function scroll() {
+    let heading = document.getElementById("main")
+
+    for (let i = 0; i < 25; i++) {
+      let div = document.createElement("div")
+      div.innerHTML = `Masai Student ${appendIt}`
+      heading.appendChild(div)
+      appendIt++
+    }
   }
-}
-scrolling()
-window.addEventListener("scroll", () => {
-    console.log(   document.documentElement.scrollHeight)
-  if (
-    window.scrollY + window.innerHeight >=
-    document.documentElement.scrollHeight
-  ) {
-    scrolling()
-  }
-})
+  scroll()
+  window.addEventListener("scroll", () => {
+    if (
+      window.scrollY + window.innerHeight >=
+      document.documentElement.scrollHeight
+    ) {
+      scroll()
+    }
+  })
 </script>
